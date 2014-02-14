@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import redirect, render_to_response
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from providers import (GoogleContactImporter, YahooContactImporter, LiveContactImporter)
+from django_contact_importer.providers import (GoogleContactImporter, YahooContactImporter, LiveContactImporter)
 
 providers = {
     "google": GoogleContactImporter,
