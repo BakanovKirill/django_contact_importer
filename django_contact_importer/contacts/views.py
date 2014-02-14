@@ -1,11 +1,11 @@
 # Create your views here.
+import json
+from django.http import HttpResponse
 
 from django.shortcuts import redirect, render_to_response
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from providers import (GoogleContactImporter,
-                                        YahooContactImporter, 
-                                        LiveContactImporter)
+from providers import (GoogleContactImporter, YahooContactImporter, LiveContactImporter)
 
 providers = {
     "google": GoogleContactImporter,
@@ -46,7 +46,7 @@ def invite(request):
         access_token = provider_instance.request_access_token(code)
         contacts = provider_instance.import_contacts(access_token)
 
-    return render_to_response("contacts/invite.html", {"contacts": contacts})
+    return HttpResponse(json.dumps({"contacts": contacts}), content_type='application/json')
 
 def _get_redirect_url(request):
         provider = request.GET.get('provider')
