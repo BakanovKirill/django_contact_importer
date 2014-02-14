@@ -3,7 +3,7 @@
 from django.shortcuts import redirect, render_to_response
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from contact_importer.providers import (GoogleContactImporter, 
+from providers import (GoogleContactImporter,
                                         YahooContactImporter, 
                                         LiveContactImporter)
 

@@ -1,0 +1,11 @@
+venv
+*.pyc
+*~
+*#*#
+.env
+.idea
+settings_local.py
+.ve/
+*.db
+debug.log
+fcgi
